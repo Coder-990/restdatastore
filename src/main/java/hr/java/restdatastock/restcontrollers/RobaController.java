@@ -15,6 +15,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping(RobaController.BASE_URL)
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class RobaController {
 

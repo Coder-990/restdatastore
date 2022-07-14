@@ -15,6 +15,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping(PrimkaController.BASE_URL)
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class PrimkaController {
 

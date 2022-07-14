@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
@@ -17,6 +18,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping(FirmeController.BASE_URL)
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class FirmeController extends ResponseEntityExceptionHandler {
 
@@ -27,9 +29,8 @@ public class FirmeController extends ResponseEntityExceptionHandler {
     private final ModelMapper modelMapper;
 
     @GetMapping()
-    public List<FirmeDto> getAll(Model model) {
+    public List<FirmeDto> getAll() {
         List<FirmeDto> companiesDto = this.firmeService.getAll().stream().map(this::convertToDto).toList();
-//        model.addAttribute("listCompanies", companiesDto);
         log.info("Companies initialized successfully");
         return companiesDto;
     }

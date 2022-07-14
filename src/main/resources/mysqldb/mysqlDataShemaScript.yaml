@@ -4,10 +4,10 @@ services:
   db:
     image: mysql:8.0.25
     container_name: db-mysql
-    command: mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+#    command: mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-      - "/schema.sql:/docker-entrypoint-initdb.d"
-      - "/data.sql:/docker-entrypoint-initdb.d"
+      - "/schema.sql:/docker-entrypoint-initdb.d/schema.sql"
+      - "/data.sql:/docker-entrypoint-initdb.d/data.sql"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: datastock
