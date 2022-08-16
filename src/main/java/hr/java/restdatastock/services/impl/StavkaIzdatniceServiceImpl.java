@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class StavkaIzdatniceServiceImpl implements StavkaIzdatniceService {
 
     private final StavkaIzdatniceRepository stavkaIzdatniceRepository;
