@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 public class StavkaPrimkeController {
 
-    public static final String BASE_URL = "/itemRecipients";
+    public static final String BASE_URL = "/itemReceipts";
     private final ModelMapper modelMapper;
     private final StavkaPrimkeService stavkaPrimkeService;
 

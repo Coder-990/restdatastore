@@ -9,11 +9,11 @@ public interface IzdatnicaService {
 
     List<IzdatnicaEntity> getAll();
 
-    IzdatnicaEntity getOneById(Long id);
+    IzdatnicaEntity getOneById(final Long id);
 
     IzdatnicaEntity createIzdatnica(final IzdatnicaEntity izdatnica);
 
-    HttpStatus deleteById(Long id);
+    HttpStatus deleteById(final Long id);
 
 //    void deleteIzdatnica(final Long id);
 }

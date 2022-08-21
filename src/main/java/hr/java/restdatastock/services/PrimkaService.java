@@ -9,11 +9,11 @@ public interface PrimkaService {
 
     List<PrimkaEntity> getAll();
 
-    PrimkaEntity getOneById(Long id);
+    PrimkaEntity getOneById(final Long id);
 
     PrimkaEntity createPrimka(final PrimkaEntity primka);
 
-    HttpStatus deleteById(Long id);
+    HttpStatus deleteById(final Long id);
 
 //    void deletePrimka(final Long id);
 }

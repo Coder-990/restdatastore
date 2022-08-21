@@ -13,8 +13,8 @@ public class RobaDto {
 
     private Long id;
     private String nazivArtikla;
-    private Integer kolicina;
     private BigDecimal cijena;
-    private String opis;
+    private Integer kolicina;
     private String jmj;
+    private String opis;
 }

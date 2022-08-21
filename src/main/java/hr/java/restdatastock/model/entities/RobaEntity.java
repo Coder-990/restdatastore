@@ -22,19 +22,20 @@ public class RobaEntity {
     @Column(name = "NazivArtikla")
     private String nazivArtikla;
     @Basic
-    @Column(name = "Kolicina")
-    private Integer kolicina;
-    @Basic
     @Column(name = "Cijena")
     private BigDecimal cijena;
+    @Basic
+    @Column(name = "Kolicina")
+    private Integer kolicina;
+
+    @Basic
+    @Column(name = "Jmj")
+    private String jmj;
 
     @Basic
     @Column(name = "Opis")
     private String opis;
 
-    @Basic
-    @Column(name = "Jmj")
-    private String jmj;
 
     @Override
     public String toString() {

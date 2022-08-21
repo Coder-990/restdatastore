@@ -42,14 +42,14 @@ public class RobaController {
     @PostMapping()
     public ResponseEntity<RobaDto> create(@RequestBody final RobaDto robaDto) {
         final RobaEntity article = this.robaService.createArticle(this.convertToEntity(robaDto));
-        log.info("Company created successfully");
+        log.info("Article created successfully");
         return this.getRobaDtoResponseEntity(article);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<RobaDto> update(@RequestBody final RobaDto robaDto, @PathVariable final Long id) {
         final RobaEntity article = this.robaService.updateExistingArticle(this.convertToEntity(robaDto), id);
-        log.info("Company updated successfully");
+        log.info("Article updated successfully");
         return this.getRobaDtoResponseEntity(article);
     }
 
