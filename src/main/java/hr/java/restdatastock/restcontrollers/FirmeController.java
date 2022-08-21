@@ -8,12 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -30,7 +29,7 @@ public class FirmeController extends ResponseEntityExceptionHandler {
 
     @GetMapping()
     public List<FirmeDto> getAll() {
-        List<FirmeDto> companiesDto = this.firmeService.getAll().stream().map(this::convertToDto).toList();
+        List<FirmeDto> companiesDto = this.firmeService.getAll().stream().map(this::convertToDto).collect(Collectors.toList());
         log.info("Companies initialized successfully");
         return companiesDto;
     }
