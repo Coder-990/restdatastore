@@ -146,7 +146,7 @@ public class RobaServiceTest {
                     .thenReturn(MockEntityDataValues.givenRobaDataRecords().stream().filter(robaEntity -> robaEntity.getId() == 9L).findFirst());
             when(robaRepository.save(any(RobaEntity.class)))
                     .thenReturn(existingRobaWithUpdates);
-            when(robaRepository.checkIfExistsAllByNazivArtiklaAndIdNotEquals(new RobaEntity(9L, "CPU_AMD_Rayzen7_1800X_BOX", 10, new BigDecimal("2589.99"), "Procesor AMD", "kom")))
+            when(robaRepository.checkIfExistsAllByNazivArtiklaAndIdNotEquals(new RobaEntity(9L, "CPU_AMD_Rayzen7_1800X_BOX",new BigDecimal("2589.99"), 10,  "Procesor AMD", "kom")))
                     .thenReturn(Collections.emptyList());
 
             final RobaEntity updatedRobaEntity = robaService.updateExistingArticle(existingRobaWithUpdates, 9L);
