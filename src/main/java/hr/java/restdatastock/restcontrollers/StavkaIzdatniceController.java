@@ -38,14 +38,14 @@ public class StavkaIzdatniceController {
     }
 
     @PostMapping()
-    public ResponseEntity<StavkaIzdatniceDto> create(@RequestBody final StavkaIzdatniceDto stavkaIzdatniceDto) {
+    public ResponseEntity<StavkaIzdatniceDto> createStavkaIzdatnice(@RequestBody final StavkaIzdatniceDto stavkaIzdatniceDto) {
         final StavkaIzdatniceEntity itemRecipient = this.stavkaIzdatniceService.createStavkaIzdatnice(this.convertToEntity(stavkaIzdatniceDto));
         log.info("Item shipments created successfully");
         return this.getStavkaPrimkaDtoResponseEntity(itemRecipient);
     }
 
     @PutMapping()
-    public ResponseEntity<StavkaIzdatniceDto> createStornoStavkePrimke(@RequestBody final StavkaIzdatniceDto stavkaPrimkeDto) {
+    public ResponseEntity<StavkaIzdatniceDto> createStornoStavkeIzdatnice(@RequestBody final StavkaIzdatniceDto stavkaPrimkeDto) {
         final StavkaIzdatniceEntity cancelItemRecipient = this.stavkaIzdatniceService.createStornoStavkeIzdatnice(this.convertToEntity(stavkaPrimkeDto));
         log.info("Cancel item shipments created successfully");
         return this.getStavkaPrimkaDtoResponseEntity(cancelItemRecipient);
