@@ -8,9 +8,7 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 
 @Repository
-@Primary
-@Transactional
 public interface PrimkaRepository extends JpaRepository<PrimkaEntity, Long> {
-
+    @Transactional
     long deletePrimkaEntityById(Long id);
 }

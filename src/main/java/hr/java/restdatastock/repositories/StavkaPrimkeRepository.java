@@ -8,7 +8,5 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 
 @Repository
-@Primary
-@Transactional
 public interface StavkaPrimkeRepository extends JpaRepository <StavkaPrimkeEntity, Long> {
 }

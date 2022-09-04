@@ -11,10 +11,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-@Primary
-@Transactional
 public interface RobaRepository extends JpaRepository<RobaEntity, Long> {
-
+    @Transactional
     long deleteRobaEntityById(Long id);
     @Query("SELECT re " +
             "FROM RobaEntity re " +
