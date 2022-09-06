@@ -32,10 +32,9 @@ public class StavkaIzdatniceServiceImpl implements StavkaIzdatniceService {
     }
 
     @Override
-    public StavkaIzdatniceEntity createStornoStavkeIzdatnice(final StavkaIzdatniceEntity stavkaIzdatnice) {
-        return this.stavkaIzdatniceRepository.findById(stavkaIzdatnice.getId())
+    public StavkaIzdatniceEntity createStornoStavkeIzdatnice(final StavkaIzdatniceEntity stavkaIzdatnice, final Long id) {
+        return stavkaIzdatniceRepository.findById(id)
                 .map(existingStavka -> {
-                    existingStavka.setId(stavkaIzdatnice.getId());
                     existingStavka.setStavkaIzdatniceIzdatnica(stavkaIzdatnice.getStavkaIzdatniceIzdatnica());
                     existingStavka.setStavkaIzdatniceRobe(stavkaIzdatnice.getStavkaIzdatniceRobe());
                     existingStavka.setKolicina(stavkaIzdatnice.getKolicina());

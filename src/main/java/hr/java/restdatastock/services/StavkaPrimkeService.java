@@ -11,6 +11,6 @@ public interface StavkaPrimkeService {
     StavkaPrimkeEntity getOneById(Long id);
     StavkaPrimkeEntity createStavkaPrimke(final StavkaPrimkeEntity primka);
 
-    StavkaPrimkeEntity createStornoStavkePrimke(final StavkaPrimkeEntity stavkaPrimke);
+    StavkaPrimkeEntity createStornoStavkePrimke(final StavkaPrimkeEntity stavkaPrimke, final Long id);
 
 }

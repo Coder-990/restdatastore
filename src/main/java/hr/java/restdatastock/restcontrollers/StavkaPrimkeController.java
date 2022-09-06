@@ -44,9 +44,9 @@ public class StavkaPrimkeController {
         return this.getStavkaPrimkaDtoResponseEntity(itemRecipient);
     }
 
-    @PutMapping()
-    public ResponseEntity<StavkaPrimkeDto> createStornoStavkePrimke(@RequestBody final StavkaPrimkeDto stavkaPrimkeDto) {
-        final StavkaPrimkeEntity cancelItemRecipient = this.stavkaPrimkeService.createStornoStavkePrimke(this.convertToEntity(stavkaPrimkeDto));
+    @PutMapping("/{id}")
+    public ResponseEntity<StavkaPrimkeDto> createStornoStavkePrimke(@RequestBody final StavkaPrimkeDto stavkaPrimkeDto, @PathVariable final Long id) {
+        final StavkaPrimkeEntity cancelItemRecipient = this.stavkaPrimkeService.createStornoStavkePrimke(this.convertToEntity(stavkaPrimkeDto), id);
         log.info("Cancel item recipient created successfully");
         return this.getStavkaPrimkaDtoResponseEntity(cancelItemRecipient);
     }

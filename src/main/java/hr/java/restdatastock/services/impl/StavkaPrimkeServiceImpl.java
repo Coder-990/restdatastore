@@ -32,10 +32,9 @@ public class StavkaPrimkeServiceImpl implements StavkaPrimkeService {
     }
 
     @Override
-    public StavkaPrimkeEntity createStornoStavkePrimke(final StavkaPrimkeEntity stavkaPrimke) {
-        return this.stavkaPrimkeRepository.findById(stavkaPrimke.getId())
+    public StavkaPrimkeEntity createStornoStavkePrimke(final StavkaPrimkeEntity stavkaPrimke, final Long id) {
+        return this.stavkaPrimkeRepository.findById(id)
                 .map(existingStavka -> {
-                    existingStavka.setId(stavkaPrimke.getId());
                     existingStavka.setStavkaPrimkePrimka(stavkaPrimke.getStavkaPrimkePrimka());
                     existingStavka.setStavkaPrimkeRobe(stavkaPrimke.getStavkaPrimkeRobe());
                     existingStavka.setKolicina(stavkaPrimke.getKolicina());

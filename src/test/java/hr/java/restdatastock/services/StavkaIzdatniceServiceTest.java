@@ -87,7 +87,7 @@ class StavkaIzdatniceServiceTest {
     class StavkaIzdatnicaServiceTestCancelItemShipments {
         @Test
         @DisplayName("GIVEN stornoStavkaIzdatnice record exists in database, WHEN a stornoStavkaIzdatnice record is canceled/updated, THEN stornoStavkaIzdatnice record is canceled and returned.")
-       void createStornoStavkeIzdatnice() {
+        void createStornoStavkeIzdatnice() {
             final StavkaIzdatniceEntity expectedStavkaIzdatnice = MockEntityDataValues.givenStavkaIzdatniceDataRecords().get(2);
 
             when(stavkaIzdatniceRepository.findById(104L))
@@ -97,7 +97,7 @@ class StavkaIzdatniceServiceTest {
             when(stavkaIzdatniceRepository.save(any(StavkaIzdatniceEntity.class)))
                     .thenReturn(expectedStavkaIzdatnice);
 
-            final StavkaIzdatniceEntity actualStavkaIzdatnice = stavkaIzdatniceService.createStornoStavkeIzdatnice(expectedStavkaIzdatnice);
+            final StavkaIzdatniceEntity actualStavkaIzdatnice = stavkaIzdatniceService.createStornoStavkeIzdatnice(expectedStavkaIzdatnice, 104L);
 
             assertAll(
                     () -> assertNotNull(actualStavkaIzdatnice),

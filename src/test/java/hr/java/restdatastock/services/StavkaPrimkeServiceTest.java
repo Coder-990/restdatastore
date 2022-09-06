@@ -96,7 +96,7 @@ class StavkaPrimkeServiceTest {
             when(stavkaPrimkeRepository.save(any(StavkaPrimkeEntity.class)))
                     .thenReturn(expectedStavkaPrimke);
 
-            final StavkaPrimkeEntity actualStavkaPrimke = stavkaPrimkeService.createStornoStavkePrimke(expectedStavkaPrimke);
+            final StavkaPrimkeEntity actualStavkaPrimke = stavkaPrimkeService.createStornoStavkePrimke(expectedStavkaPrimke, 4L);
 
             assertAll(
                     () -> assertNotNull(actualStavkaPrimke),
