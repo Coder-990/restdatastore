@@ -17,13 +17,13 @@ public class RoleEntity {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IDRole")
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Basic
+    @Column(name = "RoleType", unique = true, nullable = false)
     private String name;
 
-//    @Column()
-//    private String description;
 }
 

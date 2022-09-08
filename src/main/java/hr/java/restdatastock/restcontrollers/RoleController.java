@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -21,6 +23,11 @@ public class RoleController extends ResponseEntityExceptionHandler {
     protected static final String BASE_URL = "/roles";
     private final RoleService roleService;
     private final ModelMapper modelMapper;
+
+    @GetMapping()
+    public ResponseEntity<List<RoleEntity>> findAll() {
+        return ResponseEntity.ok().body(roleService.getAll());
+    }
 
     @PostMapping()
     public ResponseEntity<RoleDto> createRole(@RequestBody final RoleDto roleDto) {

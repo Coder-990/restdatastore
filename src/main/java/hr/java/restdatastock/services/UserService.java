@@ -16,6 +16,8 @@ public interface UserService {
 
     UserEntity registerNewUser(UserEntity user);
 
+    void initRolesAndUsers();
+
     UserEntity addRoleToUser(String username, String roleName);
 //    Map<String,String> refreshToken(String authorizationHeader, String issuer) throws BadJOSEException, ParseException, JOSEException, java.text.ParseException;
 

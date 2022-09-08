@@ -117,6 +117,11 @@ VALUES (1, 12, 4, '2022-02-21', true);
 INSERT INTO datastock.stavkaprimke (IDPrimke, IDRobe, Kolicina, DatumStorno, Storno)
 VALUES (5, 13, 4, '2022-02-22', true);
 
+INSERT INTO datastock.roles (RoleType)
+VALUES ('ADMIN');
 
-INSERT INTO datastock.racun (userId, password)
-VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO datastock.users (username, password, IDRole)
+VALUES ('Admin', 'admin', 1);
+
+INSERT INTO datastock.user_role (id_User, id_Role)
+VALUES (1, 1);

@@ -19,22 +19,25 @@ import static javax.persistence.FetchType.EAGER;
 public class UserEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IDUser")
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Basic
+    @Column(name = "Username", unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false)
+    @Basic
+    @Column(name = "Password", nullable = false)
     private String password;
 
     @ManyToMany(fetch = EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_role",
             joinColumns = {
-                    @JoinColumn(name = "id_user")
+                    @JoinColumn(name = "ID_User")
             },
             inverseJoinColumns = {
-                    @JoinColumn(name = "id_role")
+                    @JoinColumn(name = "ID_Role")
             }
     )
     private Set<RoleEntity> roles = new HashSet<>();

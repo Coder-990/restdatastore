@@ -1,7 +1,9 @@
 package hr.java.restdatastock.restcontrollers;
 
 import hr.java.restdatastock.model.dtos.UserDto;
+import hr.java.restdatastock.model.entities.RoleEntity;
 import hr.java.restdatastock.model.entities.UserEntity;
+import hr.java.restdatastock.services.RoleService;
 import hr.java.restdatastock.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +11,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.PostConstruct;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -22,6 +27,12 @@ public class UserController {
     private final UserService userService;
 
 
+
+//    @PostConstruct
+//    public void initRoleAndUser(){
+//        this.userService.initRolesAndUsers();
+//    }
+
     @PostMapping()
    public ResponseEntity<UserDto> registerNewUser(@RequestBody final UserDto userDto){
        UserEntity userEntity = this.userService.registerNewUser(convertToEntity(userDto));
@@ -31,10 +42,12 @@ public class UserController {
 
 
 
-//    @GetMapping()
-//    public ResponseEntity<List<UserEntity>> findAll() {
-//        return ResponseEntity.ok().body(userService.getAll());
-//    }
+    @GetMapping()
+    public ResponseEntity<List<UserEntity>> findAll() {
+        return ResponseEntity.ok().body(userService.getAll());
+    }
+
+
 //
 //    @GetMapping("/{username}")
 //    public ResponseEntity<UserEntity> findByUsername(@PathVariable String username) {

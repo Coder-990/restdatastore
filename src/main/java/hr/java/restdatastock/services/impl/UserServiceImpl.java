@@ -5,6 +5,7 @@ package hr.java.restdatastock.services.impl;
 //import hr.java.restdatastock.configs.security.JwtUtil;
 //import hr.java.restdatastock.model.entities.RoleEntity;
 
+import hr.java.restdatastock.model.entities.RoleEntity;
 import hr.java.restdatastock.model.entities.UserEntity;
 import hr.java.restdatastock.repositories.RoleRepository;
 import hr.java.restdatastock.repositories.UserRepository;
@@ -12,10 +13,13 @@ import hr.java.restdatastock.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 @Service
@@ -26,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-//    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional(readOnly = true)
@@ -44,9 +48,38 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity registerNewUser(UserEntity user) {
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         log.info("Registering user {} to the database", user.getUsername());
         return this.userRepository.save(user);
+    }
+
+    @Override
+    public void initRolesAndUsers() {
+        RoleEntity roleAdmin = new RoleEntity();
+        roleAdmin.setName("ROLE_ADMIN");
+        log.info("Registering user {} to the database", roleAdmin.getName());
+        this.roleRepository.save(roleAdmin);
+
+        RoleEntity roleUser = new RoleEntity();
+        roleUser.setName("ROLE_USER");
+        log.info("Registering user {} to the database", roleAdmin.getName());
+        this.roleRepository.save(roleUser);
+
+        UserEntity userAdmin = new UserEntity();
+        userAdmin.setUsername("Admin");
+        userAdmin.setPassword(passwordEncoder.encode("admin"));
+        Set<RoleEntity> adminRole = new HashSet<>();
+        adminRole.add(roleAdmin);
+        userAdmin.setRoles(adminRole);
+        this.userRepository.save(userAdmin);
+
+        UserEntity userReader = new UserEntity();
+        userReader.setUsername("Reader");
+        userReader.setPassword(passwordEncoder.encode("user"));
+        Set<RoleEntity> userRoles = new HashSet<>();
+        userRoles.add(roleUser);
+        userReader.setRoles(userRoles);
+        this.userRepository.save(userReader);
     }
 
     @Override
