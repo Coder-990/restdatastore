@@ -1,11 +1,13 @@
-package hr.java.restdatastock.configs;
+package hr.java.restdatastock.configurations.appconfig;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.AbstractPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class DatastockConfig {
@@ -15,16 +17,9 @@ public class DatastockConfig {
         return new ModelMapper();
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new AbstractPasswordEncoder() {
-            @Override
-            protected byte[] encode(CharSequence charSequence, byte[] bytes) {
-                return new byte[0];
-            }
-        };
-    }
-//    @Bean
+
+
+    //    @Bean
 //    public ObjectMapper objectMapper(){
 //        return new ObjectMapper();
 //    }
