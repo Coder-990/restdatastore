@@ -1,6 +1,8 @@
 package hr.java.restdatastock.model.entities;
 
 import lombok.*;
+import org.modelmapper.internal.bytebuddy.implementation.bind.annotation.Default;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -38,8 +40,8 @@ public class UserEntity implements Serializable {
             },
             inverseJoinColumns = {
                     @JoinColumn(name = "ID_Role")
-            }
-    )
+            })
+    @Column(name = "IDRole", nullable = false)
     private Set<RoleEntity> roles = new HashSet<>();
 
 }

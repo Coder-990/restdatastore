@@ -4,8 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.AUTO;
-
 @Entity
 @Table(name = "roles", schema = "datastock")
 @Builder

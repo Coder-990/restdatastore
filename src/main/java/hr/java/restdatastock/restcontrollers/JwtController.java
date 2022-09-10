@@ -2,7 +2,7 @@ package hr.java.restdatastock.restcontrollers;
 
 import hr.java.restdatastock.model.entities.JwtRequestEntity;
 import hr.java.restdatastock.model.entities.JwtResponseEntity;
-import hr.java.restdatastock.services.impl.JwtServiceImpl;
+import hr.java.restdatastock.services.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class JwtController {
 
-    private final JwtServiceImpl jwtService;
+    private final JwtService jwtService;
 
-    @PostMapping("{/authenticate}")
+    @PostMapping("/{authenticate}")
     public JwtResponseEntity createJwtToken(@RequestBody final JwtRequestEntity jwtRequestEntity){
         return this.jwtService.createJwtToken(jwtRequestEntity);
 

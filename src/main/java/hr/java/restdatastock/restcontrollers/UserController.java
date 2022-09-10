@@ -26,8 +26,7 @@ public class UserController {
     private final ModelMapper modelMapper;
     private final UserService userService;
 
-
-
+    
 //    @PostConstruct
 //    public void initRoleAndUser(){
 //        this.userService.initRolesAndUsers();

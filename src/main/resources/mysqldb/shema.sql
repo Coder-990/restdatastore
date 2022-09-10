@@ -75,7 +75,7 @@ create table roles
 (
     IDRole   int AUTO_INCREMENT
         primary key       NOT NULL,
-    RoleType varchar(255) null
+    RoleType varchar(255) NOT NULL
 );
 
 

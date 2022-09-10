@@ -65,6 +65,10 @@ public class UserServiceImpl implements UserService {
         log.info("Registering user {} to the database", roleAdmin.getName());
         this.roleRepository.save(roleUser);
 
+        this.initAdmin(roleAdmin, roleUser);
+    }
+
+    private void initAdmin(RoleEntity roleAdmin, RoleEntity roleUser){
         UserEntity userAdmin = new UserEntity();
         userAdmin.setUsername("Admin");
         userAdmin.setPassword(passwordEncoder.encode("admin"));

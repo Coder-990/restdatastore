@@ -118,10 +118,10 @@ INSERT INTO datastock.stavkaprimke (IDPrimke, IDRobe, Kolicina, DatumStorno, Sto
 VALUES (5, 13, 4, '2022-02-22', true);
 
 INSERT INTO datastock.roles (RoleType)
-VALUES ('ADMIN');
+VALUES ('ROLE_ADMIN');
 
-INSERT INTO datastock.users (username, password, IDRole)
-VALUES ('Admin', 'admin', 1);
+INSERT INTO datastock.users (Username, Password, IDRole)
+VALUES ('Admin', '$2a$10$wES18w2t59UH16hqzIl.e.ugpfqmYCNFPloHan3o5dUFI.anVGKJK', 1);
 
-INSERT INTO datastock.user_role (id_User, id_Role)
+INSERT INTO datastock.user_role (ID_User, ID_Role)
 VALUES (1, 1);

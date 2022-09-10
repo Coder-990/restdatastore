@@ -12,6 +12,7 @@ public class CorsConfigurer {
     private static final String PUT = "PUT";
     private static final String DELETE = "DELETE";
 
+
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
 

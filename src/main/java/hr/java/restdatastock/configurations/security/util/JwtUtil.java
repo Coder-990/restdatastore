@@ -23,19 +23,24 @@ public class JwtUtil {
         return getClaimFromToken(token, Claims::getSubject);
     }
 
-    private <T> T getClaimFromToken(final String token, Function<Claims, T> claimResolver) {
-        final Claims claims = getAllClaimsFromToken(token);
-        return claimResolver.apply(claims);
-
-    }
-
-    private Claims getAllClaimsFromToken(final String token) {
-        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJwt(token).getBody();
-    }
 
     public boolean validateToken(final String token, UserDetails userDetails) {
         final String usernameFromToken = this.getUsernameFromToken(token);
         return (usernameFromToken.equals(userDetails.getUsername()) && !this.isTokenExpired(token));
+    }
+
+    public String generateToken(final UserDetails userDetails) {
+        Map<String, Object> claims = new HashMap<>();
+        return this.buildValidityStringToken(userDetails, claims);
+    }
+
+    private <T> T getClaimFromToken(final String token, Function<Claims, T> claimResolver) {
+        final Claims claims = getAllClaimsFromToken(token);
+        return claimResolver.apply(claims);
+    }
+
+    private Claims getAllClaimsFromToken(final String token) {
+        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJwt(token).getBody();
     }
 
     private boolean isTokenExpired(String token) {
@@ -45,12 +50,6 @@ public class JwtUtil {
 
     private Date getExpirationDateFromToken(String token) {
         return this.getClaimFromToken(token, Claims::getExpiration);
-    }
-
-    public String generateToken(final UserDetails userDetails){
-        Map<String, Object> claims = new HashMap<>();
-
-        return this. buildValidityStringToken(userDetails, claims);
     }
 
     private String buildValidityStringToken(UserDetails userDetails, Map<String, Object> claims) {
