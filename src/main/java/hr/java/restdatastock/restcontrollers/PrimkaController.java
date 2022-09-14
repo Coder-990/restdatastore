@@ -1,7 +1,9 @@
 package hr.java.restdatastock.restcontrollers;
 
-import hr.java.restdatastock.model.dtos.PrimkaDto;
-import hr.java.restdatastock.model.entities.PrimkaEntity;
+import hr.java.restdatastock.models.dtos.IzdatnicaDto;
+import hr.java.restdatastock.models.dtos.PrimkaDto;
+import hr.java.restdatastock.models.entities.IzdatnicaEntity;
+import hr.java.restdatastock.models.entities.PrimkaEntity;
 import hr.java.restdatastock.services.PrimkaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,33 +27,33 @@ public class PrimkaController {
 
     @GetMapping()
     public List<PrimkaEntity> getAll() {
-        List<PrimkaEntity> recipients = this.primkaService.getAll();
+        final List<PrimkaEntity> receipts = this.primkaService.getAll();
         log.info("Recipients initialized successfully");
-        return recipients;
+        return receipts;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PrimkaDto> getById(@PathVariable final Long id) {
-        PrimkaEntity recipient = this.primkaService.getOneById(id);
+        final PrimkaEntity reeceipt = this.primkaService.getOneById(id);
         log.info("Recipient fetched successfully by id");
-        return this.getPrimkaDtoResponseEntity(recipient);
+        return this.getPrimkaDtoResponseEntity(reeceipt);
     }
 
     @PostMapping()
     public ResponseEntity<PrimkaDto> create(@RequestBody final PrimkaDto primkaDto) {
-        final PrimkaEntity recipient = this.primkaService.createPrimka(this.convertToEntity(primkaDto));
+        final PrimkaEntity receipt = this.primkaService.createPrimka(this.convertToEntity(primkaDto));
         log.info("Recipient created successfully");
-        return this.getPrimkaDtoResponseEntity(recipient);
+        return this.savePrimkaDtoResponseEntity(receipt);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<PrimkaDto> delete(@PathVariable Long id) {
+    public ResponseEntity<PrimkaDto> delete(@PathVariable final Long id) {
         HttpStatus status = this.primkaService.deleteById(id);
         log.info("Recipient deleted successfully");
         return ResponseEntity.status(status).build();
     }
 
-    private ResponseEntity<PrimkaDto> getPrimkaDtoResponseEntity(PrimkaEntity primka) {
+    private ResponseEntity<PrimkaDto> getPrimkaDtoResponseEntity(final PrimkaEntity primka) {
         final ResponseEntity<PrimkaDto> responseEntity;
         if (primka != null) {
             responseEntity = ResponseEntity.status(HttpStatus.OK).body(this.convertToDto(primka));
@@ -61,11 +63,21 @@ public class PrimkaController {
         return responseEntity;
     }
 
-    private PrimkaDto convertToDto(PrimkaEntity primkaEntity) {
+    private ResponseEntity<PrimkaDto> savePrimkaDtoResponseEntity(final PrimkaEntity primka) {
+        final ResponseEntity<PrimkaDto> responseEntity;
+        if (primka != null) {
+            responseEntity = ResponseEntity.status(HttpStatus.CREATED).body(this.convertToDto(primka));
+        } else {
+            responseEntity = ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return responseEntity;
+    }
+
+    private PrimkaDto convertToDto(final PrimkaEntity primkaEntity) {
         return modelMapper.map(primkaEntity, PrimkaDto.class);
     }
 
-    private PrimkaEntity convertToEntity(PrimkaDto primkaDto) {
+    private PrimkaEntity convertToEntity(final PrimkaDto primkaDto) {
         return modelMapper.map(primkaDto, PrimkaEntity.class);
     }
 }

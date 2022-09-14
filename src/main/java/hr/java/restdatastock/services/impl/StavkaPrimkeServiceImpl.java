@@ -2,7 +2,7 @@ package hr.java.restdatastock.services.impl;
 
 import hr.java.restdatastock.exceptions.StavkaPrimkeEntityExistsRuntimeException;
 import hr.java.restdatastock.exceptions.StavkaPrimkeEntityNotFoundRuntimeException;
-import hr.java.restdatastock.model.entities.StavkaPrimkeEntity;
+import hr.java.restdatastock.models.entities.StavkaPrimkeEntity;
 import hr.java.restdatastock.repositories.StavkaPrimkeRepository;
 import hr.java.restdatastock.services.StavkaPrimkeService;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class StavkaPrimkeServiceImpl implements StavkaPrimkeService {
 
     private final StavkaPrimkeRepository stavkaPrimkeRepository;
@@ -22,7 +22,7 @@ public class StavkaPrimkeServiceImpl implements StavkaPrimkeService {
     }
 
     @Override
-    public StavkaPrimkeEntity getOneById(Long id) {
+    public StavkaPrimkeEntity getOneById(final Long id) {
         return stavkaPrimkeRepository.findById(id).orElseThrow(()-> new StavkaPrimkeEntityNotFoundRuntimeException(id));
     }
 

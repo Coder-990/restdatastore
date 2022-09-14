@@ -1,7 +1,7 @@
 package hr.java.restdatastock.services;
 
 import hr.java.restdatastock.MockEntityDataValues;
-import hr.java.restdatastock.model.entities.PrimkaEntity;
+import hr.java.restdatastock.models.entities.PrimkaEntity;
 import hr.java.restdatastock.repositories.PrimkaRepository;
 import hr.java.restdatastock.services.impl.PrimkaServiceImpl;
 import org.junit.jupiter.api.DisplayName;

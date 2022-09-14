@@ -1,6 +1,6 @@
 package hr.java.restdatastock.services;
 
-import hr.java.restdatastock.model.entities.RobaEntity;
+import hr.java.restdatastock.models.entities.RobaEntity;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public interface RobaService {
     List<RobaEntity> getAll();
 
-    RobaEntity getOneById(Long id);
+    RobaEntity getOneById(final Long id);
 
     RobaEntity createArticle(final RobaEntity roba);
 
@@ -16,5 +16,5 @@ public interface RobaService {
 
 //    void deleteRoba(Long id);
 
-    HttpStatus deleteById(Long id);
+    HttpStatus deleteById(final Long id);
 }

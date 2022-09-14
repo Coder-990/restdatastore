@@ -2,7 +2,7 @@ package hr.java.restdatastock.services.impl;
 
 import hr.java.restdatastock.exceptions.RobaEntityExistsRuntimeException;
 import hr.java.restdatastock.exceptions.RobaEntityNotFoundRuntimeException;
-import hr.java.restdatastock.model.entities.RobaEntity;
+import hr.java.restdatastock.models.entities.RobaEntity;
 import hr.java.restdatastock.repositories.RobaRepository;
 import hr.java.restdatastock.services.RobaService;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class RobaServiceImpl implements RobaService {
 
     private final RobaRepository robaRepository;
@@ -37,10 +37,10 @@ public class RobaServiceImpl implements RobaService {
         return robaRepository.findById(id)
                 .map(existingRoba -> {
                     existingRoba.setNazivArtikla(roba.getNazivArtikla());
-                    existingRoba.setKolicina(roba.getKolicina());
                     existingRoba.setCijena(roba.getCijena());
-                    existingRoba.setOpis(roba.getOpis());
+                    existingRoba.setKolicina(roba.getKolicina());
                     existingRoba.setJmj(roba.getJmj());
+                    existingRoba.setOpis(roba.getOpis());
                     return this.saveArticle(existingRoba);
                 }).orElseThrow(() -> new RobaEntityExistsRuntimeException(roba));
     }
@@ -49,9 +49,9 @@ public class RobaServiceImpl implements RobaService {
     public HttpStatus deleteById(Long id) {
         final HttpStatus httpStatus;
         if (this.robaRepository.deleteRobaEntityById(id) > 0) {
-            httpStatus = HttpStatus.OK;
-        } else {
             httpStatus = HttpStatus.NO_CONTENT;
+        } else {
+            httpStatus = HttpStatus.UNAUTHORIZED;
         }
         return httpStatus;
     }

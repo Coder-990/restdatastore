@@ -1,6 +1,6 @@
 package hr.java.restdatastock;
 
-import hr.java.restdatastock.model.dtos.FirmeDto;
+import hr.java.restdatastock.models.dtos.FirmeDto;
 
 import java.util.Arrays;
 import java.util.List;

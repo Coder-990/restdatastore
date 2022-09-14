@@ -1,6 +1,6 @@
 package hr.java.restdatastock;
 
-import hr.java.restdatastock.model.entities.*;
+import hr.java.restdatastock.models.entities.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -18,14 +18,14 @@ public class MockEntityDataValues {
     private static final FirmeEntity FIRMA_LUMINUM = new FirmeEntity(24L, "54526589110", "Luminum");
     private static final FirmeEntity FIRMA_KILOBYTE_TEST = new FirmeEntity(95L, "02013025652", "KiloBytetest");
 
-    private static final RobaEntity CPU_AMD_1 = new RobaEntity(1L, "CPU_AMDx2A4_4020", new BigDecimal("215.00"),10,  "Procesor AMD", "kom");
-    public static final RobaEntity CPU_AMD_2 = new RobaEntity(2L, "CPU_AMDA6_9500",  new BigDecimal("393.00"),10, "Procesor AMD", "kom");
-    public static final RobaEntity CPU_AMD_3 = new RobaEntity(3L, "CPU_AMDx4FX_4300",  new BigDecimal("425.00"),10, "Procesor AMD", "kom");
-    private static final RobaEntity CPU_AMD_4 = new RobaEntity(8L, "CPU_AMDRayzen5_1600X_BOX",  new BigDecimal("1580.00"), 10, "Procesor AMD", "kom");
-    private static final RobaEntity CPU_AMD_5 = new RobaEntity(9L, "CPU_AMD_Rayzen7_1800X_BOX", new BigDecimal("2589.99"),10,  "Procesor AMD", "kom");
-    private static final RobaEntity MBO_ASUS_1 = new RobaEntity(10L, "MBO_ASUSa68HM_K", new BigDecimal("290.00"),10,  "MaticnaPloca ASUS", "kom");
-    private static final RobaEntity MBO_ASUS_2 = new RobaEntity(25L, "MBO_ASUS_M5A97_R2.0", new BigDecimal("675.00"),10,  "MaticnaPloca ASUS", "kom");
-    private static final RobaEntity MBO_ASUS_3 = new RobaEntity(26L, "MBO_ASUS_M5A97_LE_R2.0", new BigDecimal("475.00"),10,  "MaticnaPloca ASUS", "kom");
+    private static final RobaEntity CPU_AMD_1 = new RobaEntity(1L, "CPU_AMDx2A4_4020", new BigDecimal("215.00"), 10, "kom", "Processor AMD");
+    public static final RobaEntity CPU_AMD_2 = new RobaEntity(2L, "CPU_AMDA6_9500", new BigDecimal("393.00"), 10, "kom", "Processor AMD");
+    public static final RobaEntity CPU_AMD_3 = new RobaEntity(3L, "CPU_AMDx4FX_4300", new BigDecimal("425.00"), 10, "kom", "Processor AMD");
+    private static final RobaEntity CPU_AMD_4 = new RobaEntity(8L, "CPU_AMDRayzen5_1600X_BOX", new BigDecimal("1580.00"), 10, "kom", "Processor AMD");
+    private static final RobaEntity CPU_AMD_5 = new RobaEntity(9L, "CPU_AMD_Rayzen7_1800X_BOX", new BigDecimal("2589.99"), 10, "kom", "Processor AMD");
+    private static final RobaEntity MBO_ASUS_1 = new RobaEntity(10L, "MBO_ASUSa68HM_K", new BigDecimal("290.00"), 10, "kom", "MaticnaPloca ASUS");
+    private static final RobaEntity MBO_ASUS_2 = new RobaEntity(25L, "MBO_ASUS_M5A97_R2.0", new BigDecimal("675.00"), 10, "kom", "MaticnaPloca ASUS");
+    private static final RobaEntity MBO_ASUS_3 = new RobaEntity(26L, "MBO_ASUS_M5A97_LE_R2.0", new BigDecimal("475.00"), 10, "kom", "MaticnaPloca ASUS");
 
     private static final LocalDate STAVKA_IZDATNICE_DATE_STORNO_1 = of(2022, 2, 21);
     private static final LocalDate STAVKA_IZDATNICE_DATE_STORNO_2 = of(2022, 4, 27);
@@ -74,11 +74,12 @@ public class MockEntityDataValues {
                 new StavkaIzdatniceEntity(21L, IZDATNICA_ENTITY_4, CPU_AMD_1, 2, true, STAVKA_IZDATNICE_DATE_STORNO_4)
         );
     }
+
     public static List<RacunEntity> givenRacunDataRecords() {
         return Arrays.asList(
-                new RacunEntity("user","user"),
-                new RacunEntity("test","test"),
-                new RacunEntity("editor","editor")
+                new RacunEntity("user", "user"),
+                new RacunEntity("test", "test"),
+                new RacunEntity("editor", "editor")
         );
     }
 
@@ -88,6 +89,7 @@ public class MockEntityDataValues {
                 FIRMA_CYBER_TECH, FIRMA_LUMINUM, FIRMA_KILOBYTE_TEST
         );
     }
+
     public static List<RobaEntity> givenRobaDataRecords() {
         return Arrays.asList(
                 CPU_AMD_1, CPU_AMD_2, CPU_AMD_3, CPU_AMD_4,
@@ -113,6 +115,4 @@ public class MockEntityDataValues {
                 new PrimkaEntity(99L, PRIMKA_DATE_6, FIRMA_CYBER_TECH)
         );
     }
-
-
 }

@@ -1,7 +1,6 @@
 package hr.java.restdatastock.repositories;
 
-import hr.java.restdatastock.model.entities.RobaEntity;
-import org.springframework.context.annotation.Primary;
+import hr.java.restdatastock.models.entities.RobaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

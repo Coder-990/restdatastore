@@ -1,7 +1,7 @@
 package hr.java.restdatastock.services.impl;
 
 import hr.java.restdatastock.exceptions.IzdatnicaEntityNotFoundRuntimeException;
-import hr.java.restdatastock.model.entities.IzdatnicaEntity;
+import hr.java.restdatastock.models.entities.IzdatnicaEntity;
 import hr.java.restdatastock.repositories.IzdatnicaRepository;
 import hr.java.restdatastock.services.IzdatnicaService;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class IzdatnicaServiceImpl implements IzdatnicaService {
 
     private final IzdatnicaRepository izdatnicaRepository;
@@ -35,9 +35,9 @@ public class IzdatnicaServiceImpl implements IzdatnicaService {
     public HttpStatus deleteById(Long id) {
         final HttpStatus httpStatus;
         if (this.izdatnicaRepository.deleteIzdatnicaEntityById(id) > 0){
-            httpStatus = HttpStatus.OK;
-        } else {
             httpStatus = HttpStatus.NO_CONTENT;
+        } else {
+            httpStatus = HttpStatus.UNAUTHORIZED;
         }
         return httpStatus;
     }

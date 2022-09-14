@@ -1,6 +1,6 @@
 package hr.java.restdatastock.services;
 
-import hr.java.restdatastock.model.entities.IzdatnicaEntity;
+import hr.java.restdatastock.models.entities.IzdatnicaEntity;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;

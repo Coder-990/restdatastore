@@ -2,7 +2,7 @@ package hr.java.restdatastock.services.impl;
 
 import hr.java.restdatastock.exceptions.RacunEntityUserIdCheckRuntimeExcpetion;
 import hr.java.restdatastock.exceptions.RacunEntityUserPasswordCheckRuntimeExcpetion;
-import hr.java.restdatastock.model.entities.RacunEntity;
+import hr.java.restdatastock.models.entities.RacunEntity;
 import hr.java.restdatastock.repositories.RacunRepository;
 import hr.java.restdatastock.services.RacunService;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class RacunServiceImpl implements RacunService {
 
     private final RacunRepository racunRepository;

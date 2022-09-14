@@ -3,7 +3,7 @@ package hr.java.restdatastock.services;
 import hr.java.restdatastock.MockEntityDataValues;
 import hr.java.restdatastock.exceptions.RobaEntityExistsRuntimeException;
 import hr.java.restdatastock.exceptions.RobaEntityNotFoundRuntimeException;
-import hr.java.restdatastock.model.entities.RobaEntity;
+import hr.java.restdatastock.models.entities.RobaEntity;
 import hr.java.restdatastock.repositories.RobaRepository;
 import hr.java.restdatastock.services.impl.RobaServiceImpl;
 import org.junit.jupiter.api.DisplayName;
@@ -146,7 +146,7 @@ public class RobaServiceTest {
                     .thenReturn(MockEntityDataValues.givenRobaDataRecords().stream().filter(robaEntity -> robaEntity.getId() == 9L).findFirst());
             when(robaRepository.save(any(RobaEntity.class)))
                     .thenReturn(existingRobaWithUpdates);
-            when(robaRepository.checkIfExistsAllByNazivArtiklaAndIdNotEquals(new RobaEntity(9L, "CPU_AMD_Rayzen7_1800X_BOX",new BigDecimal("2589.99"), 10,  "Procesor AMD", "kom")))
+            when(robaRepository.checkIfExistsAllByNazivArtiklaAndIdNotEquals(new RobaEntity(9L, "CPU_AMD_Rayzen7_1800X_BOX", new BigDecimal("2589.99"), 10, "kom", "Processor AMD")))
                     .thenReturn(Collections.emptyList());
 
             final RobaEntity updatedRobaEntity = robaService.updateExistingArticle(existingRobaWithUpdates, 9L);

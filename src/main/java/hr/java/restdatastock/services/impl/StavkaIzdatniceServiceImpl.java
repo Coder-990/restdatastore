@@ -2,7 +2,7 @@ package hr.java.restdatastock.services.impl;
 
 import hr.java.restdatastock.exceptions.StavkaIzdatniceEntityExistsRuntimeException;
 import hr.java.restdatastock.exceptions.StavkaIzdatniceEntityNotFoundRuntimeException;
-import hr.java.restdatastock.model.entities.StavkaIzdatniceEntity;
+import hr.java.restdatastock.models.entities.StavkaIzdatniceEntity;
 import hr.java.restdatastock.repositories.StavkaIzdatniceRepository;
 import hr.java.restdatastock.services.StavkaIzdatniceService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class StavkaIzdatniceServiceImpl implements StavkaIzdatniceService {
     }
 
     @Override
-    public StavkaIzdatniceEntity getOneById(Long id) {
+    public StavkaIzdatniceEntity getOneById(final Long id) {
         return this.stavkaIzdatniceRepository.findById(id).orElseThrow(()-> new StavkaIzdatniceEntityNotFoundRuntimeException(id));
     }
 
@@ -32,7 +32,8 @@ public class StavkaIzdatniceServiceImpl implements StavkaIzdatniceService {
     }
 
     @Override
-    public StavkaIzdatniceEntity createStornoStavkeIzdatnice(final StavkaIzdatniceEntity stavkaIzdatnice, final Long id) {
+    public StavkaIzdatniceEntity createStornoStavkeIzdatnice(final StavkaIzdatniceEntity stavkaIzdatnice,
+                                                             final Long id) {
         return stavkaIzdatniceRepository.findById(id)
                 .map(existingStavka -> {
                     existingStavka.setStavkaIzdatniceIzdatnica(stavkaIzdatnice.getStavkaIzdatniceIzdatnica());

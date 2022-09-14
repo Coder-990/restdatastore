@@ -2,7 +2,7 @@ package hr.java.restdatastock.services;
 
 import hr.java.restdatastock.MockEntityDataValues;
 import hr.java.restdatastock.exceptions.RacunEntitiyNotFoundRuntimeException;
-import hr.java.restdatastock.model.entities.RacunEntity;
+import hr.java.restdatastock.models.entities.RacunEntity;
 import hr.java.restdatastock.repositories.RacunRepository;
 import hr.java.restdatastock.services.impl.RacunServiceImpl;
 import org.junit.jupiter.api.DisplayName;

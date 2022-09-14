@@ -1,4 +1,4 @@
-package hr.java.restdatastock.model.entities;
+package hr.java.restdatastock.models.entities;
 
 import lombok.*;
 

@@ -3,7 +3,7 @@ package hr.java.restdatastock.services;
 import hr.java.restdatastock.MockEntityDataValues;
 import hr.java.restdatastock.exceptions.FirmeEntityExistsRuntimeException;
 import hr.java.restdatastock.exceptions.FirmeEntityNotFoundRuntimeException;
-import hr.java.restdatastock.model.entities.FirmeEntity;
+import hr.java.restdatastock.models.entities.FirmeEntity;
 import hr.java.restdatastock.repositories.FirmeRepository;
 import hr.java.restdatastock.services.impl.FirmeServiceImpl;
 import org.junit.jupiter.api.DisplayName;
@@ -140,15 +140,12 @@ class FirmeServiceTest {
         @DisplayName("GIVEN firma record exists in database, WHEN a firma record is updated, THEN firma record is updated and returned.")
         void testUpdateExistingFirma() {
             final FirmeEntity expectedFirmaWithUpdates = MockEntityDataValues.givenFirmeDataRecords().get(2);
-
             when(firmeRepository.findById(1L))
                     .thenReturn(MockEntityDataValues.givenFirmeDataRecords().stream().filter(firmeEntity -> firmeEntity.getId() == 1L).findFirst());
             when(firmeRepository.save(any(FirmeEntity.class))).thenReturn(expectedFirmaWithUpdates);
             when(firmeRepository.checkIfExistsAllByOibAndIdNotEquals(new FirmeEntity(1L, "02013025652", "KiloByte")))
                     .thenReturn(Collections.emptyList());
-
             final FirmeEntity updatedFirmaEntity = firmeService.updateExistingFirma(expectedFirmaWithUpdates, 1L);
-
             assertAll(
                     () -> assertNotNull(updatedFirmaEntity),
                     () -> assertEquals(expectedFirmaWithUpdates, updatedFirmaEntity)

@@ -1,42 +1,27 @@
 package hr.java.restdatastock.restcontrollers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import hr.java.restdatastock.MockDtoDataValues;
-import hr.java.restdatastock.MockEntityDataValues;
-import hr.java.restdatastock.model.entities.FirmeEntity;
 import hr.java.restdatastock.repositories.FirmeRepository;
 import hr.java.restdatastock.services.FirmeService;
-import io.restassured.module.mockmvc.RestAssuredMockMvc;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(FirmeController.class)
 class FirmeControllerTest {
     @Autowired
     private WebApplicationContext context;
     private MockMvc mockMvc;
-    @Autowired
-    private ObjectMapper objectMapper;
+//    @Autowired
+//    private ObjectMapper objectMapper;
     @Autowired
     private ModelMapper modelMapper;
     @MockBean

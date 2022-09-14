@@ -1,4 +1,4 @@
-package hr.java.restdatastock.model.dtos;
+package hr.java.restdatastock.models.dtos;
 
 import lombok.*;
 

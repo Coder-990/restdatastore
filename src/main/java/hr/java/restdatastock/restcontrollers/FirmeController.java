@@ -1,7 +1,7 @@
 package hr.java.restdatastock.restcontrollers;
 
-import hr.java.restdatastock.model.dtos.FirmeDto;
-import hr.java.restdatastock.model.entities.FirmeEntity;
+import hr.java.restdatastock.models.dtos.FirmeDto;
+import hr.java.restdatastock.models.entities.FirmeEntity;
 import hr.java.restdatastock.services.FirmeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@RequiredArgsConstructor
+@RestController
 @RequestMapping(FirmeController.BASE_URL)
 @CrossOrigin(origins = "http://localhost:4200")
-@RestController
+@RequiredArgsConstructor
 public class FirmeController extends ResponseEntityExceptionHandler {
 
     public static final String BASE_URL = "/companies";
@@ -29,35 +29,36 @@ public class FirmeController extends ResponseEntityExceptionHandler {
 
     @GetMapping()
     public List<FirmeDto> getAll() {
-        List<FirmeDto> companiesDto = this.firmeService.getAll().stream().map(this::convertToDto).collect(Collectors.toList());
+        final List<FirmeDto> companiesDto = this.firmeService.getAll()
+                .stream().map(this::convertToDto).collect(Collectors.toList());
         log.info("Companies initialized successfully");
         return companiesDto;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<FirmeDto> getById(@PathVariable final Long id) {
-        FirmeEntity firma = this.firmeService.getOneById(id);
+        final FirmeEntity firma = this.firmeService.getOneById(id);
         log.info("Company fetched successfully by id");
         return this.getFirmeDtoResponseEntity(firma);
     }
 
     @PostMapping()
     public ResponseEntity<FirmeDto> create(@RequestBody final FirmeDto firmeDto) {
-        final FirmeEntity firma = this.firmeService.createFirma(convertToEntity(firmeDto));
+        final FirmeEntity firma = this.firmeService.createFirma(this.convertToEntity(firmeDto));
         log.info("Company created successfully");
         return this.saveFirmeDtoResponseEntity(firma);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<FirmeDto> update(@RequestBody final FirmeDto firmeDto, @PathVariable final Long id) {
-        final FirmeEntity firma = this.firmeService.updateExistingFirma(convertToEntity(firmeDto), id);
+        final FirmeEntity firma = this.firmeService.updateExistingFirma(this.convertToEntity(firmeDto), id);
         log.info("Company updated successfully");
         return this.saveFirmeDtoResponseEntity(firma);
     }
 
     @DeleteMapping("/{id}")
-    public HttpStatus delete(@PathVariable Long id) {
-        HttpStatus status = this.firmeService.deleteById(id);
+    public HttpStatus delete(@PathVariable final Long id) {
+        final HttpStatus status = this.firmeService.deleteById(id);
         log.info("Company deleted successfully");
         return status;
     }

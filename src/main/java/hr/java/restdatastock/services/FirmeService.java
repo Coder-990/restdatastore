@@ -1,6 +1,6 @@
 package hr.java.restdatastock.services;
 
-import hr.java.restdatastock.model.entities.FirmeEntity;
+import hr.java.restdatastock.models.entities.FirmeEntity;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
@@ -9,7 +9,7 @@ public interface FirmeService {
 
     List<FirmeEntity> getAll();
 
-    FirmeEntity getOneById(Long id);
+    FirmeEntity getOneById(final Long id);
 
     FirmeEntity createFirma(final FirmeEntity company);
 
@@ -17,6 +17,6 @@ public interface FirmeService {
 
 //    void deleteFirma(final Long id);
 
-    HttpStatus deleteById(Long id);
+    HttpStatus deleteById(final Long id);
 
 }

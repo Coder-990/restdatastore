@@ -1,4 +1,4 @@
-package hr.java.restdatastock.model.entities;
+package hr.java.restdatastock.models.entities;
 
 import lombok.*;
 
@@ -6,26 +6,26 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "stavkaprimke", schema = "datastock")
+@Table(name = "stavkaizdatnice", schema = "datastock")
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class StavkaPrimkeEntity {
+public class StavkaIzdatniceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDStavkaPrimke")
+    @Column(name = "IDStavkaIzdatnice")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "IDPrimke", referencedColumnName = "IDPrimke")
-    private PrimkaEntity stavkaPrimkePrimka;
+    @JoinColumn(name = "IDIzdatnice", referencedColumnName = "IDIzdatnice")
+    private IzdatnicaEntity stavkaIzdatniceIzdatnica;
 
     @ManyToOne
     @JoinColumn(name = "IDRobe", referencedColumnName = "IDRobe")
-    private RobaEntity stavkaPrimkeRobe;
+    private RobaEntity stavkaIzdatniceRobe;
 
     @Basic
     @Column(name = "Kolicina")

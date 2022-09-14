@@ -1,7 +1,7 @@
 package hr.java.restdatastock.services.impl;
 
 import hr.java.restdatastock.exceptions.PrimkaEntityNotFoundRuntimeException;
-import hr.java.restdatastock.model.entities.PrimkaEntity;
+import hr.java.restdatastock.models.entities.PrimkaEntity;
 import hr.java.restdatastock.repositories.PrimkaRepository;
 import hr.java.restdatastock.services.PrimkaService;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class PrimkaServiceImpl implements PrimkaService {
 
     private final PrimkaRepository primkaRepository;
@@ -35,9 +35,9 @@ public class PrimkaServiceImpl implements PrimkaService {
     public HttpStatus deleteById(Long id) {
         final HttpStatus httpStatus;
         if (this.primkaRepository.deletePrimkaEntityById(id) > 0){
-            httpStatus = HttpStatus.OK;
-        } else {
             httpStatus = HttpStatus.NO_CONTENT;
+        } else {
+            httpStatus = HttpStatus.UNAUTHORIZED;
         }
         return httpStatus;
     }

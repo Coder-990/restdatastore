@@ -2,22 +2,19 @@ package hr.java.restdatastock.services.impl;
 
 import hr.java.restdatastock.exceptions.FirmeEntityExistsRuntimeException;
 import hr.java.restdatastock.exceptions.FirmeEntityNotFoundRuntimeException;
-import hr.java.restdatastock.model.dtos.FirmeDto;
-import hr.java.restdatastock.model.entities.FirmeEntity;
+import hr.java.restdatastock.models.entities.FirmeEntity;
 import hr.java.restdatastock.repositories.FirmeRepository;
 import hr.java.restdatastock.services.FirmeService;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class FirmeServiceImpl implements FirmeService {
 
     private final FirmeRepository firmeRepository;

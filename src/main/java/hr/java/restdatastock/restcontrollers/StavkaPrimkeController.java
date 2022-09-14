@@ -1,7 +1,9 @@
 package hr.java.restdatastock.restcontrollers;
 
-import hr.java.restdatastock.model.dtos.StavkaPrimkeDto;
-import hr.java.restdatastock.model.entities.StavkaPrimkeEntity;
+import hr.java.restdatastock.models.dtos.StavkaIzdatniceDto;
+import hr.java.restdatastock.models.dtos.StavkaPrimkeDto;
+import hr.java.restdatastock.models.entities.StavkaIzdatniceEntity;
+import hr.java.restdatastock.models.entities.StavkaPrimkeEntity;
 import hr.java.restdatastock.services.StavkaPrimkeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,34 +27,38 @@ public class StavkaPrimkeController {
 
     @GetMapping()
     public List<StavkaPrimkeEntity> getAll() {
-        List<StavkaPrimkeEntity> itemRecipients = this.stavkaPrimkeService.getAll();
+        final List<StavkaPrimkeEntity> itemReceipts = this.stavkaPrimkeService.getAll();
         log.info("Item recipients initialized successfully");
-        return itemRecipients;
+        return itemReceipts;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<StavkaPrimkeDto> getById(@PathVariable final Long id) {
-        StavkaPrimkeEntity itemRecipient = this.stavkaPrimkeService.getOneById(id);
+        final StavkaPrimkeEntity itemReceipt = this.stavkaPrimkeService.getOneById(id);
         log.info("Item recipient fetched successfully by id");
-        return this.getStavkaPrimkaDtoResponseEntity(itemRecipient);
+        return this.getStavkaPrimkaDtoResponseEntity(itemReceipt);
     }
 
     @PostMapping()
     public ResponseEntity<StavkaPrimkeDto> create(@RequestBody final StavkaPrimkeDto primkaDto) {
-        final StavkaPrimkeEntity itemRecipient = this.stavkaPrimkeService.createStavkaPrimke(this.convertToEntity(primkaDto));
+        final StavkaPrimkeEntity itemReceipt = this.stavkaPrimkeService.createStavkaPrimke(
+                this.convertToEntity(primkaDto));
         log.info("Item recipient created successfully");
-        return this.getStavkaPrimkaDtoResponseEntity(itemRecipient);
+        return this.saveStavkaPrimkeDtoResponseEntity(itemReceipt);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<StavkaPrimkeDto> createStornoStavkePrimke(@RequestBody final StavkaPrimkeDto stavkaPrimkeDto, @PathVariable final Long id) {
-        final StavkaPrimkeEntity cancelItemRecipient = this.stavkaPrimkeService.createStornoStavkePrimke(this.convertToEntity(stavkaPrimkeDto), id);
+    public ResponseEntity<StavkaPrimkeDto> createStornoStavkePrimke(
+            @RequestBody final StavkaPrimkeDto stavkaPrimkeDto, @PathVariable final Long id) {
+        final StavkaPrimkeEntity cancelItemReceipt = this.stavkaPrimkeService.createStornoStavkePrimke(
+                this.convertToEntity(stavkaPrimkeDto), id);
         log.info("Cancel item recipient created successfully");
-        return this.getStavkaPrimkaDtoResponseEntity(cancelItemRecipient);
+        return this.saveStavkaPrimkeDtoResponseEntity(cancelItemReceipt);
     }
 
 
-    private ResponseEntity<StavkaPrimkeDto> getStavkaPrimkaDtoResponseEntity(StavkaPrimkeEntity stavkaPrimke) {
+    private ResponseEntity<StavkaPrimkeDto> getStavkaPrimkaDtoResponseEntity(
+            final StavkaPrimkeEntity stavkaPrimke) {
         final ResponseEntity<StavkaPrimkeDto> responseEntity;
         if (stavkaPrimke != null) {
             responseEntity = ResponseEntity.status(HttpStatus.OK).body(this.convertToDto(stavkaPrimke));
@@ -62,11 +68,22 @@ public class StavkaPrimkeController {
         return responseEntity;
     }
 
-    private StavkaPrimkeDto convertToDto(StavkaPrimkeEntity stavkaPrimke) {
+    private ResponseEntity<StavkaPrimkeDto> saveStavkaPrimkeDtoResponseEntity(
+            final StavkaPrimkeEntity stavkaPrimkeEntity) {
+        final ResponseEntity<StavkaPrimkeDto> responseEntity;
+        if (stavkaPrimkeEntity != null) {
+            responseEntity = ResponseEntity.status(HttpStatus.CREATED).body(this.convertToDto(stavkaPrimkeEntity));
+        } else {
+            responseEntity = ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return responseEntity;
+    }
+
+    private StavkaPrimkeDto convertToDto(final StavkaPrimkeEntity stavkaPrimke) {
         return modelMapper.map(stavkaPrimke, StavkaPrimkeDto.class);
     }
 
-    private StavkaPrimkeEntity convertToEntity(StavkaPrimkeDto stavkaPrimkeDto) {
+    private StavkaPrimkeEntity convertToEntity(final StavkaPrimkeDto stavkaPrimkeDto) {
         return modelMapper.map(stavkaPrimkeDto, StavkaPrimkeEntity.class);
     }
 }

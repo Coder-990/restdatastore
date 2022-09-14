@@ -1,7 +1,7 @@
 package hr.java.restdatastock.services;
 
 import hr.java.restdatastock.MockEntityDataValues;
-import hr.java.restdatastock.model.entities.StavkaIzdatniceEntity;
+import hr.java.restdatastock.models.entities.StavkaIzdatniceEntity;
 import hr.java.restdatastock.repositories.StavkaIzdatniceRepository;
 import hr.java.restdatastock.services.impl.StavkaIzdatniceServiceImpl;
 import org.junit.jupiter.api.DisplayName;

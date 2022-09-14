@@ -1,7 +1,7 @@
 package hr.java.restdatastock.exceptions;
 
 
-import hr.java.restdatastock.model.entities.RobaEntity;
+import hr.java.restdatastock.models.entities.RobaEntity;
 
 public class RobaEntityExistsRuntimeException extends RuntimeException{
     public static final String ERROR_MSG = "Article by this 'Name' already exists: ";
