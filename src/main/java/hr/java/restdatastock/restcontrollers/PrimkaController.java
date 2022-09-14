@@ -1,8 +1,6 @@
 package hr.java.restdatastock.restcontrollers;
 
-import hr.java.restdatastock.models.dtos.IzdatnicaDto;
 import hr.java.restdatastock.models.dtos.PrimkaDto;
-import hr.java.restdatastock.models.entities.IzdatnicaEntity;
 import hr.java.restdatastock.models.entities.PrimkaEntity;
 import hr.java.restdatastock.services.PrimkaService;
 import lombok.RequiredArgsConstructor;

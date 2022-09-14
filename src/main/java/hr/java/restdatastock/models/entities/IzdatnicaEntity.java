@@ -1,6 +1,5 @@
 package hr.java.restdatastock.models.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;

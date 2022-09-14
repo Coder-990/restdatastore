@@ -41,9 +41,4 @@ public class PrimkaServiceImpl implements PrimkaService {
         }
         return httpStatus;
     }
-
-//    @Override
-//    public void deletePrimka(final Long id){
-//        this.primkaRepository.deleteById(id);
-//    }
 }

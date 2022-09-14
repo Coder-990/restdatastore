@@ -55,11 +55,6 @@ public class FirmeServiceImpl implements FirmeService {
         return httpStatus;
     }
 
-//    @Override
-//    public void deleteFirma(Long id) {
-//        this.firmeRepository.deleteById(id);
-//    }
-
     private FirmeEntity saveFirma(final FirmeEntity firmeEntity) {
         if (firmeEntity.getId() != null) {
             List<FirmeEntity> firmeOibOverlap = firmeRepository.checkIfExistsAllByOibAndIdNotEquals(firmeEntity);

@@ -15,21 +15,21 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
-@WebMvcTest(FirmeController.class)
-class FirmeControllerTest {
-    @Autowired
-    private WebApplicationContext context;
-    private MockMvc mockMvc;
+//@WebMvcTest(FirmeController.class)
+//class FirmeControllerTest {
 //    @Autowired
-//    private ObjectMapper objectMapper;
-    @Autowired
-    private ModelMapper modelMapper;
-    @MockBean
-    private FirmeService firmeService;
-    @MockBean
-    private FirmeRepository firmeRepository;
-    @InjectMocks
-    private FirmeController firmeController;
+//    private WebApplicationContext context;
+//    private MockMvc mockMvc;
+////    @Autowired
+////    private ObjectMapper objectMapper;
+//    @Autowired
+//    private ModelMapper modelMapper;
+//    @MockBean
+//    private FirmeService firmeService;
+//    @MockBean
+//    private FirmeRepository firmeRepository;
+//    @InjectMocks
+//    private FirmeController firmeController;
 
 //    @BeforeEach
 //    public void setUp() {
@@ -166,5 +166,5 @@ class FirmeControllerTest {
 //    }
 
 
-}
+//}
 

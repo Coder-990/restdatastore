@@ -55,11 +55,6 @@ public class RobaServiceImpl implements RobaService {
         }
         return httpStatus;
     }
-//    @Override
-//    public void deleteRoba(final Long id) {
-//        this.robaRepository.deleteById(id);
-//    }
-
 
     private RobaEntity saveArticle(RobaEntity robaEntity) {
         if (robaEntity.getId() != null) {

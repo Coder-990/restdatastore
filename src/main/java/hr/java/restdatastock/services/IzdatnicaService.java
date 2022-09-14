@@ -14,6 +14,4 @@ public interface IzdatnicaService {
     IzdatnicaEntity createIzdatnica(final IzdatnicaEntity izdatnica);
 
     HttpStatus deleteById(final Long id);
-
-//    void deleteIzdatnica(final Long id);
 }

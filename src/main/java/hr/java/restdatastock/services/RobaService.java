@@ -14,7 +14,5 @@ public interface RobaService {
 
     RobaEntity updateExistingArticle(final RobaEntity roba, final Long id);
 
-//    void deleteRoba(Long id);
-
     HttpStatus deleteById(final Long id);
 }

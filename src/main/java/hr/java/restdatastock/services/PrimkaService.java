@@ -14,6 +14,4 @@ public interface PrimkaService {
     PrimkaEntity createPrimka(final PrimkaEntity primka);
 
     HttpStatus deleteById(final Long id);
-
-//    void deletePrimka(final Long id);
 }

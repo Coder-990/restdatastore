@@ -41,8 +41,4 @@ public class IzdatnicaServiceImpl implements IzdatnicaService {
         }
         return httpStatus;
     }
-//    @Override
-//    public void deleteIzdatnica(final Long id) {
-//        this.izdatnicaRepository.deleteById(id);
-//    }
 }

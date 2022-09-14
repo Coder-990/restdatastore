@@ -15,8 +15,6 @@ public interface FirmeService {
 
     FirmeEntity updateExistingFirma(final FirmeEntity company, final Long id);
 
-//    void deleteFirma(final Long id);
-
     HttpStatus deleteById(final Long id);
 
 }
