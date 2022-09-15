@@ -33,11 +33,11 @@ public class RobaServiceTest {
     private RobaServiceImpl robaService;
 
     @Nested
-    @DisplayName("RobaService get all articles")
+    @DisplayName("RobaServiceTest get all articles")
     class RobaServiceTestGetAllArticles {
 
         @Test
-        @DisplayName("GIVEN roba records exists in database, WHEN all roba records are requested, THEN all roba records from database are returned.")
+        @DisplayName("GIVEN article records exists in database, WHEN all article records are requested, THEN all article records from database are returned.")
         void testGetAll() {
             final List<RobaEntity> expectedListOfRoba = MockEntityDataValues.givenRobaDataRecords();
 
@@ -50,7 +50,7 @@ public class RobaServiceTest {
         }
 
         @Test
-        @DisplayName("GIVEN there are no roba records in database, WHEN all roba records are requested, THEN empty list is returned.")
+        @DisplayName("GIVEN there are no article records in database, WHEN all article records are requested, THEN empty list is returned.")
         void testGetAllEmpty() {
             final List<RobaEntity> expectedListOfRoba = Collections.emptyList();
 
@@ -65,11 +65,11 @@ public class RobaServiceTest {
     }
 
     @Nested
-    @DisplayName("RobaService get company by id")
+    @DisplayName("RobaServiceTest get company by id")
     class RobaServiceTestGetOneById {
 
         @Test
-        @DisplayName("GIVEN roba record exists in database, WHEN a single roba record is fetched, THEN the roba with requested ID is returned.")
+        @DisplayName("GIVEN article record exists in database, WHEN a single article record is fetched, THEN the article with requested ID is returned.")
         void testGetOneById() {
             final RobaEntity expectedRoba = MockEntityDataValues.givenRobaDataRecords().get(0);
 
@@ -85,7 +85,7 @@ public class RobaServiceTest {
         }
 
         @Test
-        @DisplayName("GIVEN roba record does not exists in database, WHEN a single roba record is fetched, THEN error is thrown.")
+        @DisplayName("GIVEN article record does not exists in database, WHEN a single article record is fetched, THEN error is thrown.")
         void testGetOneByIdNonExistingId() {
             Class<RobaEntityNotFoundRuntimeException> expectedExceptionClass = RobaEntityNotFoundRuntimeException.class;
 
@@ -97,11 +97,11 @@ public class RobaServiceTest {
     }
 
     @Nested
-    @DisplayName("RobaService create article")
+    @DisplayName("RobaServiceTest create article")
     class RobaServiceTestCreateArticle {
 
         @Test
-        @DisplayName("GIVEN roba record does not exist in database, WHEN new roba record is created, THEN new record is created and returned.")
+        @DisplayName("GIVEN article record does not exist in database, WHEN new article record is created, THEN new record is created and returned.")
         void testCreateArticle() {
             final RobaEntity expectedRoba = MockEntityDataValues.givenRobaDataRecords().get(5);
 
@@ -119,7 +119,7 @@ public class RobaServiceTest {
         }
 
         @Test
-        @DisplayName("GIVEN roba record exists in database, WHEN new roba record is created, THEN error is thrown.")
+        @DisplayName("GIVEN article record exists in database, WHEN new article record is created, THEN error is thrown.")
         void testCreateRobaWithExistingNameRecord() {
             final RobaEntity expectedRoba = MockEntityDataValues.givenRobaDataRecords().get(3);
             Class<RobaEntityExistsRuntimeException> expectedExceptionClass = RobaEntityExistsRuntimeException.class;
@@ -134,11 +134,11 @@ public class RobaServiceTest {
     }
 
     @Nested
-    @DisplayName("RobaService update article")
+    @DisplayName("RobaServiceTest update article")
     class RobaServiceTestUpdateExistingArticle {
 
         @Test
-        @DisplayName("GIVEN roba record exists in database, WHEN a roba record is updated, THEN roba record is updated and returned.")
+        @DisplayName("GIVEN article record exists in database, WHEN a article record is updated, THEN article record is updated and returned.")
         void testUpdateExistingArticle() {
             final RobaEntity existingRobaWithUpdates = MockEntityDataValues.givenRobaDataRecords().get(4);
 
@@ -158,7 +158,7 @@ public class RobaServiceTest {
         }
 
         @Test
-        @DisplayName("GIVEN roba record does not exist in database, WHEN a roba record is updated, THEN error is thrown.")
+        @DisplayName("GIVEN article record does not exist in database, WHEN a article record is updated, THEN error is thrown.")
         void testUpdateNonExistingFirma() {
             final RobaEntity existingRobaWithUpdates = MockEntityDataValues.givenRobaDataRecords().get(4);
             Class<RobaEntityNotFoundRuntimeException> expectedExceptionClass = RobaEntityNotFoundRuntimeException.class;
@@ -172,10 +172,10 @@ public class RobaServiceTest {
     }
 
     @Nested
-    @DisplayName("RobaService delete article")
+    @DisplayName("RobaServiceTest delete article")
     class RobaServiceTestDeleteArticle {
         @Test
-        @DisplayName("GIVEN roba record either exist or not, WHEN a single roba record is deleted, THEN repository roba method should be called once.")
+        @DisplayName("GIVEN article record either exist or not, WHEN a single article record is deleted, THEN repository article method should be called once.")
         void testDeleteFirma() {
             Long idRobe = MockEntityDataValues.givenRobaDataRecords().get(0).getId();
 

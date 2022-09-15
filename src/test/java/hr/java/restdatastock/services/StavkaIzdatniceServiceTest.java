@@ -29,11 +29,11 @@ class StavkaIzdatniceServiceTest {
     private StavkaIzdatniceServiceImpl stavkaIzdatniceService;
 
     @Nested
-    @DisplayName("StavkaIzdatnicaService get all shipments")
+    @DisplayName("StavkaIzdatnicaServiceTest get all itemShipments")
     class StavkaIzdatnicaServiceTestGetAllItemShipments {
 
         @Test
-        @DisplayName("GIVEN stavkaizdatnice records exists in database, WHEN all stavkaizdatnice records are requested, THEN all stavkaizdatnice records from database are returned.")
+        @DisplayName("GIVEN itemShipment records exists in database, WHEN all itemShipments records are requested, THEN all itemShipments records from database are returned.")
         void testGetAll() {
             final List<StavkaIzdatniceEntity> expectedListOfStavkaIzdatnice = MockEntityDataValues.givenStavkaIzdatniceDataRecords();
 
@@ -47,7 +47,7 @@ class StavkaIzdatniceServiceTest {
         }
 
         @Test
-        @DisplayName("GIVEN there are no stavkaIzdatnice records in database, WHEN all stavkaIzdatnice records are requested, THEN empty list is returned.")
+        @DisplayName("GIVEN there are no itemShipments records in database, WHEN all itemShipments records are requested, THEN empty list is returned.")
         void testGetAllEmpty() {
             final List<StavkaIzdatniceEntity> expectedListOfStavkaIzdatnice = Collections.emptyList();
 
@@ -62,11 +62,11 @@ class StavkaIzdatniceServiceTest {
     }
 
     @Nested
-    @DisplayName("StavkaIzdatnicaService create stavkaIzdatnice")
+    @DisplayName("StavkaIzdatnicaServiceTest create stavkaIzdatnice")
     class StavkaIzdatnicaServiceTestCreateItemShipments {
 
         @Test
-        @DisplayName("GIVEN stornoStavkaIzdatnice record exists in database, WHEN a stornoStavkaIzdatnice record is created, THEN stornoStavkaIzdatnice record is returned.")
+        @DisplayName("GIVEN itemShipments record exists in database, WHEN a itemShipments record is created, THEN itemShipments record is returned.")
         void createStavkaIzdatnice() {
             final StavkaIzdatniceEntity expectedStavkaIzdatnice = MockEntityDataValues.givenStavkaIzdatniceDataRecords().get(0);
 
@@ -83,10 +83,10 @@ class StavkaIzdatniceServiceTest {
     }
 
     @Nested
-    @DisplayName("StornoStavkaIzdatnicaService cancel stornoStavkaIzdatnice")
+    @DisplayName("StavkaIzdatnicaServiceTest cancel itemShipment")
     class StavkaIzdatnicaServiceTestCancelItemShipments {
         @Test
-        @DisplayName("GIVEN stornoStavkaIzdatnice record exists in database, WHEN a stornoStavkaIzdatnice record is canceled/updated, THEN stornoStavkaIzdatnice record is canceled and returned.")
+        @DisplayName("GIVEN cancelItemShipment record exists in database, WHEN a cancelItemShipment record is canceled/updated, THEN cancelItemShipment record is canceled and returned.")
         void createStornoStavkeIzdatnice() {
             final StavkaIzdatniceEntity expectedStavkaIzdatnice = MockEntityDataValues.givenStavkaIzdatniceDataRecords().get(2);
 

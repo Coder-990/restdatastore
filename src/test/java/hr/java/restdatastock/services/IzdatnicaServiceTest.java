@@ -30,11 +30,11 @@ class IzdatnicaServiceTest {
     private IzdatnicaServiceImpl izdatnicaService;
 
     @Nested
-    @DisplayName("IzdatnicaService get all shipments")
+    @DisplayName("IzdatnicaServiceTest get all shipments")
     class IzdatnicaServiceTestGetAllShipments {
 
         @Test
-        @DisplayName("GIVEN izdatnica records exists in database, WHEN all izdatnica records are requested, THEN all izdatnica records from database are returned.")
+        @DisplayName("GIVEN shipment records exists in database, WHEN all shipment records are requested, THEN all shipment records from database are returned.")
         void testGetAll() {
             final List<IzdatnicaEntity> expectedListOfIzdatnica = MockEntityDataValues.givenIzdatnicaDataRecords();
 
@@ -48,7 +48,7 @@ class IzdatnicaServiceTest {
         }
 
         @Test
-        @DisplayName("GIVEN there are no izdatnica records in database, WHEN all izdatnica records are requested, THEN empty list is returned.")
+        @DisplayName("GIVEN there are no shipment records in database, WHEN all shipment records are requested, THEN empty list is returned.")
         void testGetAllEmpty() {
             final List<IzdatnicaEntity> expectedListOfIzdatnica = Collections.emptyList();
 
@@ -64,10 +64,10 @@ class IzdatnicaServiceTest {
     }
 
     @Nested
-    @DisplayName("IzdatnicaService create")
+    @DisplayName("IzdatnicaServiceTest create shipment")
     class IzdatnicaServiceTestCreateIzdatnica {
         @Test
-        @DisplayName("GIVEN izdatnica record exists in database, WHEN a izdatnica record is updated, THEN izdatnica record is returned.")
+        @DisplayName("GIVEN shipment record exists in database, WHEN a shipment record is updated, THEN shipment record is returned.")
         void testCreateIzdatnica() {
             final IzdatnicaEntity expectedIzdatnica = MockEntityDataValues.givenIzdatnicaDataRecords().get(0);
 
@@ -82,10 +82,10 @@ class IzdatnicaServiceTest {
     }
 
     @Nested
-    @DisplayName("IzdatnicaService delete izdatnica")
+    @DisplayName("IzdatnicaServiceTest delete shipment")
     class IzdatnicaServiceTestDeleteIzdatnica {
         @Test
-        @DisplayName("GIVEN izdatnica record either exist or not, WHEN a single izdatnica record is deleted, THEN repository delete method should be called once.")
+        @DisplayName("GIVEN shipment record either exist or not, WHEN a single shipment record is deleted, THEN repository delete method should be called once.")
         void testDeleteIzdatnica() {
             Long idIzdatnice = MockEntityDataValues.givenIzdatnicaDataRecords().get(1).getId();
 

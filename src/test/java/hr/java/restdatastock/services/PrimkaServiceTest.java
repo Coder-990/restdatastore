@@ -29,11 +29,12 @@ class PrimkaServiceTest {
     private PrimkaServiceImpl primkaService;
 
     @Nested
-    @DisplayName("PrimkaService get all recipients")
+    @DisplayName("PrimkaServiceTest get all receipts")
     class PrimkaServiceTestGetAllCompanies {
 
         @Test
-        @DisplayName("GIVEN primka records exists in database, WHEN all primka records are requested, THEN all primka records from database are returned.")
+        @DisplayName("GIVEN receipt records exists in database, WHEN all receipt records are requested, THEN all receipt" +
+                " records from database are returned.")
         void testGetAll() {
             final List<PrimkaEntity> expectedListOfPrimka = MockEntityDataValues.givenPrimkaDataRecords();
 
@@ -47,7 +48,7 @@ class PrimkaServiceTest {
         }
 
         @Test
-        @DisplayName("GIVEN there are no primka records in database, WHEN all primka records are requested, THEN empty list is returned.")
+        @DisplayName("GIVEN there are no receipt records in database, WHEN all receipt records are requested, THEN empty list is returned.")
         void testGetAllEmpty() {
             final List<PrimkaEntity> expectedListOfPrimka = Collections.emptyList();
 
@@ -63,11 +64,11 @@ class PrimkaServiceTest {
     }
 
     @Nested
-    @DisplayName("PrimkaService create primka")
+    @DisplayName("PrimkaServiceTest create receipt")
     class PrimkaServiceTestCreatePrimka {
 
         @Test
-        @DisplayName("GIVEN primka record exists in database, WHEN a primka record is updated, THEN primka record is updated and returned.")
+        @DisplayName("GIVEN receipt record exists in database, WHEN a receipt record is updated, THEN receipt record is updated and returned.")
         void testCreatePrimka() {
             final PrimkaEntity expectedListOfPrimka = MockEntityDataValues.givenPrimkaDataRecords().get(0);
 
@@ -82,10 +83,10 @@ class PrimkaServiceTest {
     }
 
     @Nested
-    @DisplayName("PrimkaService delete primka")
+    @DisplayName("PrimkaServiceTest delete receipt")
     class PrimkaServiceTestDeletePrimka {
         @Test
-        @DisplayName("GIVEN primka record either exist or not, WHEN a single primka record is deleted, THEN repository delete method should be called once.")
+        @DisplayName("GIVEN receipt record either exist or not, WHEN a single receipt record is deleted, THEN repository delete method should be called once.")
         void testDeletePrimka() {
             final PrimkaEntity primka = MockEntityDataValues.givenPrimkaDataRecords().get(1);
 

@@ -29,10 +29,10 @@ class StavkaPrimkeServiceTest {
     private StavkaPrimkeServiceImpl stavkaPrimkeService;
 
     @Nested
-    @DisplayName("StavkaPrimkeService get all recipients")
-    class StavkaPrimkeServiceTestGetAllItemRecipients {
+    @DisplayName("StavkaPrimkeServiceTest get all itemReceipts")
+    class StavkaPrimkeServiceTestGetAllItemReceipts {
         @Test
-        @DisplayName("GIVEN stavkaPrimke records exists in database, WHEN all stavkaPrimke records are requested, THEN all stavkaPrimke records from database are returned.")
+        @DisplayName("GIVEN itemReceipts records exists in database, WHEN all itemReceipts records are requested, THEN all itemReceipts records from database are returned.")
         void testGetAll() {
             final List<StavkaPrimkeEntity> expectedListOfStavkaPrimke = MockEntityDataValues.givenStavkaPrimkeDataRecords();
 
@@ -46,7 +46,7 @@ class StavkaPrimkeServiceTest {
         }
 
         @Test
-        @DisplayName("GIVEN there are no stavkaPrimke records in database, WHEN all stavkaPrimke records are requested, THEN empty list is returned.")
+        @DisplayName("GIVEN there are no itemReceipts records in database, WHEN all itemReceipts records are requested, THEN empty list is returned.")
         void testGetAllEmpty() {
             final List<StavkaPrimkeEntity> expectedListOfStavkaPrimke = Collections.emptyList();
 
@@ -61,10 +61,10 @@ class StavkaPrimkeServiceTest {
     }
 
     @Nested
-    @DisplayName("StavkaPrimkeService create recipient")
-    class StavkaPrimkeServiceTestCreateItemRecipients {
+    @DisplayName("StavkaPrimkeServiceTest create itemReceipts")
+    class StavkaPrimkeServiceTestCreateItemReceipts {
         @Test
-        @DisplayName("GIVEN there are no stavkaPrimke records in database, WHEN all stavkaPrimke records are requested, THEN empty list is returned.")
+        @DisplayName("GIVEN there are no itemReceipts records in database, WHEN all itemReceipts records are requested, THEN empty list is returned.")
         void createStavkaPrimke() {
             final StavkaPrimkeEntity expectedStavkaPrimke = MockEntityDataValues.givenStavkaPrimkeDataRecords().get(0);
 
@@ -81,11 +81,11 @@ class StavkaPrimkeServiceTest {
     }
 
     @Nested
-    @DisplayName("StornoStavkaIzdatnicaService cancel stornoStavkaIzdatnice")
-    class StavkaPrimkeServiceTestCancelItemRecipients {
+    @DisplayName("StavkaPrimkeServiceTest cancel itemReceipts")
+    class StavkaPrimkeServiceTestCancelItemReceipts {
 
         @Test
-        @DisplayName("GIVEN stornoStavkaPrimke record exists in database, WHEN a stornoStavkaPrimke record is canceled/updated, THEN stornoStavkaPrimke record is canceled and returned.")
+        @DisplayName("GIVEN cancelItemReceipts record exists in database, WHEN a cancelItemReceipts record is canceled/updated, THEN cancelItemReceipts record is canceled and returned.")
         void createStornoStavkePrimke() {
             final StavkaPrimkeEntity expectedStavkaPrimke = MockEntityDataValues.givenStavkaPrimkeDataRecords().get(0);
 

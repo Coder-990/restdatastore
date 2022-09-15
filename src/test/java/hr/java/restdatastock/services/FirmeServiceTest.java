@@ -32,7 +32,7 @@ class FirmeServiceTest {
     private FirmeServiceImpl firmeService;
 
     @Nested
-    @DisplayName("FirmeService get all companies")
+    @DisplayName("FirmeServiceTest get all companies")
     class FirmeServiceTestGetAllCompanies {
 
         @Test
@@ -64,7 +64,7 @@ class FirmeServiceTest {
     }
 
     @Nested
-    @DisplayName("FirmeService get company by id")
+    @DisplayName("FirmeServiceTest get company by id")
     class FirmeServiceTestGetOneById {
 
         @Test
@@ -96,7 +96,7 @@ class FirmeServiceTest {
     }
 
     @Nested
-    @DisplayName("FirmeService create firma")
+    @DisplayName("FirmeServiceTest create firma")
     class FirmeServiceTestCreateFirma {
 
         @Test
@@ -133,7 +133,7 @@ class FirmeServiceTest {
     }
 
     @Nested
-    @DisplayName("FirmeService update firma")
+    @DisplayName("FirmeServiceTest update firma")
     class FirmeServiceTestUpdateExistingFirma {
 
         @Test
@@ -168,12 +168,12 @@ class FirmeServiceTest {
     }
 
     @Nested
-    @DisplayName("FirmeService update firma")
+    @DisplayName("FirmeServiceTest delete firma")
     class FirmeServiceTestDeleteFirma {
         @Test
         @DisplayName("GIVEN firma record either exist or not, WHEN a single firma record is deleted, THEN repository delete method should be called once.")
         void testDeleteFirma() {
-            Long idFirme = MockEntityDataValues.givenFirmeDataRecords().get(0).getId();
+            final Long idFirme = MockEntityDataValues.givenFirmeDataRecords().get(0).getId();
             firmeRepository.deleteFirmeEntityById(idFirme);
 
             verify(firmeRepository, times(1)).deleteFirmeEntityById(idFirme);
