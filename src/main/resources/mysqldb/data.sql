@@ -1,19 +1,3 @@
-INSERT INTO datastock.firme (OIBFirme, NazivFirme)
-VALUES ('45485474525', 'Prime Software');
-INSERT INTO datastock.firme (OIBFirme, NazivFirme)
-VALUES ('54758545965', 'KoderCro');
-INSERT INTO datastock.firme (OIBFirme, NazivFirme)
-VALUES ('58651000214', 'TechFoot');
-INSERT INTO datastock.firme (OIBFirme, NazivFirme)
-VALUES ('02013025652', 'KiloByte');
-INSERT INTO datastock.firme (OIBFirme, NazivFirme)
-VALUES ('47459652365', 'CyberTech');
-INSERT INTO datastock.firme (OIBFirme, NazivFirme)
-VALUES ('54526589110', 'Luminum');
-INSERT INTO datastock.firme (OIBFirme, NazivFirme)
-VALUES ('45125475856', 'NewCompany');
-
-
 INSERT INTO datastock.roba (NazivArtikla, Kolicina, Cijena, Opis, Jmj)
 VALUES ('CPU_AMDx2A4_4020', 10, 215,
         'Procesor AMD Richland A4-Series X2 4020 3.20GHz 2cores,cache : 1MB L2, 65W,Soc FM2, VGA : Radeon TM HD 7480D',
@@ -67,6 +51,20 @@ VALUES ('MBO_ASUS_M5A97_LE_R2.0', 10, 475, 'Opis
 Form factor: µATX • Chipset: AMD A320 • RAM: 2x DDR3DIMM, dual PC4-25600U/?DDR3-1866 (OC), max. 32GB (UDIMM) • Extension slots: 1x PCIe 3.0 x16, 2x PCIe 2.0 x1, 1x M.2/?M-Key (PCIe 3.0 x4/?SATA, 2280/?2260/?2242) • External connectors: 1x VGA, 1x HDMI 1.4, 4x USB-A 3.0, 2x USB-A 2.0, 1x Gb LAN (Realtek RTL8111H), 3x jack, 1x PS/?2 keyboard, 1x PS/?2 mouse • Internal connectors: 2x USB 3.0, 4x USB 2.0, 4x SATA 6Gb/s (A320), 1x serial • Header Cooling: 1x CPU fan 4-Pin, 1x fan 4-Pin • Header Lighting: not available • Audio: 7.1 (Realtek ALC887) • RAID level: 0/?1/?10 (A320) • Multi-GPU: not available • power connections: 1x 24-Pin ATX, 1x 4-Pin ATX12V • CPU-phases: 6 • Graphics: IGP (via CPU/?APU) • Lighting: not available • Special features: audio+solid capacitors, Soc AM4',
         'pieces');
 
+INSERT INTO datastock.firme (OIBFirme, NazivFirme)
+VALUES ('45485474525', 'Prime Software');
+INSERT INTO datastock.firme (OIBFirme, NazivFirme)
+VALUES ('54758545965', 'KoderCro');
+INSERT INTO datastock.firme (OIBFirme, NazivFirme)
+VALUES ('58651000214', 'TechFoot');
+INSERT INTO datastock.firme (OIBFirme, NazivFirme)
+VALUES ('02013025652', 'KiloByte');
+INSERT INTO datastock.firme (OIBFirme, NazivFirme)
+VALUES ('47459652365', 'CyberTech');
+INSERT INTO datastock.firme (OIBFirme, NazivFirme)
+VALUES ('54526589110', 'Luminum');
+INSERT INTO datastock.firme (OIBFirme, NazivFirme)
+VALUES ('45125475856', 'NewCompany');
 
 INSERT INTO datastock.izdatnica (IDFirme, Datum)
 VALUES (1, '2022-02-18 00:00:00');
@@ -74,7 +72,6 @@ INSERT INTO datastock.izdatnica (IDFirme, Datum)
 VALUES (2, '2022-02-26 00:00:00');
 INSERT INTO datastock.izdatnica (IDFirme, Datum)
 VALUES (3, '2022-03-04 00:00:00');
-
 
 INSERT INTO datastock.primka (IDFirme, Datum)
 VALUES (4, '2022-02-01 00:00:00');
@@ -86,7 +83,6 @@ INSERT INTO datastock.primka (IDFirme, Datum)
 VALUES (7, '2022-02-01 00:00:00');
 INSERT INTO datastock.primka (IDFirme, Datum)
 VALUES (1, '2022-02-18 00:00:00');
-
 
 INSERT INTO datastock.stavkaizdatnice (IDIzdatnice, IDRobe, Kolicina, DatumStorno, Storno)
 VALUES (1, 1, 2, '2022-02-21', true);
@@ -103,7 +99,6 @@ VALUES (3, 6, 2, '2022-02-21', true);
 INSERT INTO datastock.stavkaizdatnice (IDIzdatnice, IDRobe, Kolicina, DatumStorno, Storno)
 VALUES (3, 7, 2, null, false);
 
-
 INSERT INTO datastock.stavkaprimke (IDPrimke, IDRobe, Kolicina, DatumStorno, Storno)
 VALUES (5, 8, 5, null, false);
 INSERT INTO datastock.stavkaprimke (IDPrimke, IDRobe, Kolicina, DatumStorno, Storno)
@@ -116,7 +111,6 @@ INSERT INTO datastock.stavkaprimke (IDPrimke, IDRobe, Kolicina, DatumStorno, Sto
 VALUES (1, 12, 4, '2022-02-21', true);
 INSERT INTO datastock.stavkaprimke (IDPrimke, IDRobe, Kolicina, DatumStorno, Storno)
 VALUES (5, 13, 4, '2022-02-22', true);
-
 
 INSERT INTO datastock.racun (userId, password)
 VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3');
