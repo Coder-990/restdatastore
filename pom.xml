@@ -11,10 +11,10 @@
 	<groupId>hr.java</groupId>
 	<artifactId>restdatastore</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>restdatastore</name>
-	<description>restdatastore</description>
+	<name>rest-datastore</name>
+	<description>rest-datastore</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<rest-assured.version>4.5.1</rest-assured.version>
 		<groovy.version>3.0.7</groovy.version>
 	</properties>
