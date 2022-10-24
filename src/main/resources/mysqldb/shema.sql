@@ -4,14 +4,14 @@ use datastock;
 create table firme
 (
     IDFirme    int AUTO_INCREMENT
-        primary key         NOT NULL,
+        primary key NOT NULL,
     OIBFirme   varchar(255) null,
     NazivFirme varchar(255) null
 );
 create table izdatnica
 (
     IDIzdatnice int AUTO_INCREMENT
-        primary key      NOT NULL,
+        primary key NOT NULL,
     IDFirme     int      null,
     Datum       datetime null,
     constraint izdatnica_firme__fk
@@ -20,7 +20,7 @@ create table izdatnica
 create table primka
 (
     IDPrimke int AUTO_INCREMENT
-        primary key   NOT NULL,
+        primary key NOT NULL,
     IDFirme  int      null,
     Datum    datetime null,
     constraint primka_firme__fk
@@ -29,7 +29,7 @@ create table primka
 create table roba
 (
     IDRobe       int AUTO_INCREMENT
-        primary key           NOT NULL,
+        primary key NOT NULL,
     NazivArtikla varchar(255) null,
     Kolicina     int          null,
     Cijena       double       null,
@@ -39,7 +39,7 @@ create table roba
 create table stavkaizdatnice
 (
     IDStavkaIzdatnice int AUTO_INCREMENT
-        primary key            NOT NULL,
+        primary key NOT NULL,
     IDIzdatnice       int      null,
     IDRobe            int      null,
     Kolicina          int      null,
@@ -53,7 +53,7 @@ create table stavkaizdatnice
 create table stavkaprimke
 (
     IDStavkaPrimke int AUTO_INCREMENT
-        primary key         NOT NULL,
+        primary key NOT NULL,
     IDPrimke       int      null,
     IDRobe         int      null,
     Kolicina       int      null,
